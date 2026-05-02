@@ -41,3 +41,24 @@ This script will:
 
 ## Environment Variables
 The local stack injects a development secret `RentokilLocalSecretKey2026` for JWT authentication. For production, these are managed via GitHub Actions secrets.
+
+
+# Google Cloud Production URLs
+## Dev
+- https://rentokil-frontend-uni-dev-662756251108.europe-west1.run.app
+- https://rentokil-backend-uni-dev-662756251108.europe-west1.run.app
+
+## Test 
+- https://rentokil-frontend-uni-test-662756251108.europe-west1.run.app
+- https://rentokil-backend-uni-test-662756251108.europe-west1.run.app
+
+## Prod
+- https://rentokil-frontend-uni-prod-662756251108.europe-west1.run.app
+- https://rentokil-backend-uni-prod-662756251108.europe-west1.run.app
+
+
+# Backend Repository
+https://github.com/Amari-Lawal/RentokilSelfServiceBackendUni
+
+# Frontend Repository
+https://github.com/Amari-Lawal/RentokilSelfServiceFrontendUni
