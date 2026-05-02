@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: ../RentokilSelfServiceBackendUni
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ENVIRONMENT=development
+      - PORT=8080
+      - JWT_SECRET_KEY=RentokilLocalSecretKey2026
+    volumes:
+      - backend_data:/home/user/rentokilselfservice/Service/data
+
+  frontend:
+    build:
+      context: ../RentokilSelfServiceFrontendUni
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8080
+    depends_on:
+      - backend
+
+volumes:
+  backend_data:
