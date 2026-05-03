@@ -25,8 +25,8 @@ The Rentokil Self-Service application follows a decoupled, three-tier architectu
 ### System Architecture Diagram
 ```mermaid
 graph TD
-    User((User/Admin)) -->|HTTPS| Frontend[React Frontend - Vite (Google Cloud Run)]
-    Frontend -->|REST API/JWT| Backend[FastAPI Backend (Google Cloud Run)]
+    User((User/Admin)) -->|HTTPS| Frontend[React Frontend - Vite Google Cloud Run]
+    Frontend -->|REST API/JWT| Backend[FastAPI Backend Google Cloud Run]
     
     subgraph Backend Logic
         Backend -->|Pydantic| Schemas[Data Validation]
