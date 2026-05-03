@@ -6,6 +6,7 @@ A comprehensive, full-stack pest control appointment booking and management syst
 This project was developed in accordance with the following assessment requirements:
 - **Assessment Brief**: [Full Requirements & Rubric](https://docs.google.com/document/u/1/d/1MySvxCN7EyxIJMVyGQhPgtf9AUF4KIZO/edit)
 - **Viva Presentation (Component 2)**: [Google Slides Presentation](https://docs.google.com/presentation/d/12jTcNNGxCz2wZ_Gh2gcpnMimd2q6Y1Uhi_rFLm6u4z4/edit)
+- **Final Submission**: [End of Module Portfolio Submission](https://canvas.roehampton.ac.uk/courses/example/assignments/example) (Placeholder Link)
 
 ---
 
