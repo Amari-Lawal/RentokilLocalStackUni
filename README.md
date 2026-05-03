@@ -2,12 +2,10 @@
 
 A comprehensive, full-stack pest control appointment booking and management system built with modern DevSecOps practices. 
 
-## Project Overview
-This application allows customers to register, log in, and book exterminator appointments. Administrators can manage these appointments, updating statuses (Pending, Completed, Cancelled). 
-
-## Viva Presentation (Component 2)
-The presentation covering the DevOps framework, security evaluation, and architectural decisions can be found here:
-- **Google Slides**: [Rentokil Self-Service Viva Presentation](https://docs.google.com/presentation/d/12jTcNNGxCz2wZ_Gh2gcpnMimd2q6Y1Uhi_rFLm6u4z4/edit)
+## Assessment Documentation
+This project was developed in accordance with the following assessment requirements:
+- **Assessment Brief**: [Full Requirements & Rubric](https://docs.google.com/document/u/1/d/1MySvxCN7EyxIJMVyGQhPgtf9AUF4KIZO/edit)
+- **Viva Presentation (Component 2)**: [Google Slides Presentation](https://docs.google.com/presentation/d/12jTcNNGxCz2wZ_Gh2gcpnMimd2q6Y1Uhi_rFLm6u4z4/edit)
 
 ---
 
