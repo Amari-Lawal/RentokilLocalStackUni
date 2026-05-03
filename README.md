@@ -61,4 +61,4 @@ The local stack injects a development secret `RentokilLocalSecretKey2026` for JW
 https://github.com/Amari-Lawal/RentokilSelfServiceBackendUni
 
 # Frontend Repository
-https://github.com/Amari-Lawal/RentokilSelfServiceFrontendUni
+https://github.com/Amari-Lawal/RentokilSelfServiceFrontendUni   
