@@ -59,6 +59,13 @@ case "$MODE" in
     cd ../RentokilLocalStackUni
     ;;
   --test-staging)
+    echo "Running Backend Unit Tests..."
+    # Delegate backend tests to the backend's specific docker-compose
+    cd ../RentokilSelfServiceBackendUni
+    docker compose -f docker-compose.local.yml build test
+    docker compose -f docker-compose.local.yml run --rm test
+    cd ../RentokilLocalStackUni
+
     echo "Running Frontend E2E Tests against Live URL: $PLAYWRIGHT_TEST_BASE_URL"
     if [[ -z "$PLAYWRIGHT_TEST_BASE_URL" ]]; then
       echo "ERROR: PLAYWRIGHT_TEST_BASE_URL environment variable is not set."
