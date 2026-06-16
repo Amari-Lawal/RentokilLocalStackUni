@@ -1,0 +1,59 @@
+name: Local Stack Smoke Test
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - test
+      - staging
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout LocalStack
+        uses: actions/checkout@v4
+        with:
+          path: RentokilLocalStackUni
+
+      - name: Checkout Backend
+        uses: actions/checkout@v4
+        with:
+          repository: Amari-Lawal/RentokilSelfServiceBackendUni
+          ref: ${{ github.ref_name }}
+          path: RentokilSelfServiceBackendUni
+
+      - name: Checkout Frontend
+        uses: actions/checkout@v4
+        with:
+          repository: Amari-Lawal/RentokilSelfServiceFrontendUni
+          ref: ${{ github.ref_name }}
+          path: RentokilSelfServiceFrontendUni
+
+      - name: Create Backend .env File
+        run: |
+          echo "JWT_SECRET_KEY=RentokilLocalSecretKey2026_Secure" > RentokilSelfServiceBackendUni/.env
+          echo "DATABASE_URL=sqlite:///app.db" >> RentokilSelfServiceBackendUni/.env
+
+      - name: Create Frontend .env File
+        run: |
+          echo "VITE_API_URL=http://localhost:8080" > RentokilSelfServiceFrontendUni/.env
+
+      - name: Install Node.js for Playwright
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Frontend Dependencies & Playwright
+        run: |
+          cd RentokilSelfServiceFrontendUni
+          npm ci
+          npx playwright install --with-deps
+
+      - name: Run Smoke Test via Local Stack build_app.sh
+        run: |
+          cd RentokilLocalStackUni
+          chmod +x build_app.sh
+          ./build_app.sh --test
