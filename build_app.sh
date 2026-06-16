@@ -59,18 +59,20 @@ case "$MODE" in
     cd ../RentokilLocalStackUni
     ;;
   --test-staging)
-    echo "Running Backend Unit Tests..."
-    # Delegate backend tests to the backend's specific docker-compose
-    cd ../RentokilSelfServiceBackendUni
-    docker compose -f docker-compose.local.yml build test
-    docker compose -f docker-compose.local.yml run --rm test
-    cd ../RentokilLocalStackUni
-
-    echo "Running Frontend E2E Tests against Live URL: $PLAYWRIGHT_TEST_BASE_URL"
     if [[ -z "$PLAYWRIGHT_TEST_BASE_URL" ]]; then
       echo "ERROR: PLAYWRIGHT_TEST_BASE_URL environment variable is not set."
       exit 1
     fi
+    export BACKEND_TEST_BASE_URL="${PLAYWRIGHT_TEST_BASE_URL/-frontend-/-backend-}"
+
+    echo "Running Backend Unit Tests against Live URL: $BACKEND_TEST_BASE_URL"
+    # Delegate backend tests to the backend's specific docker-compose
+    cd ../RentokilSelfServiceBackendUni
+    docker compose -f docker-compose.local.yml build test
+    docker compose -f docker-compose.local.yml run --rm -e BACKEND_TEST_BASE_URL="$BACKEND_TEST_BASE_URL" test
+    cd ../RentokilLocalStackUni
+
+    echo "Running Frontend E2E Tests against Live URL: $PLAYWRIGHT_TEST_BASE_URL"
     cd ../RentokilSelfServiceFrontendUni
     # Ensure dependencies are installed for playwright
     if [ ! -d "node_modules" ]; then
