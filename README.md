@@ -177,6 +177,9 @@ Build and start both the Frontend and Backend locally:
 - **Frontend**: http://localhost:5173
 - **Backend API**: http://localhost:8080
 - **API Docs**: http://localhost:8080/docs
+- **Default Admin Credentials**:
+  - **Username**: `admin`
+  - **Password**: `adminpassword123`
 
 ### 2. Run the Full Test Suite
 Run Backend Pytest units and Frontend E2E tests:
